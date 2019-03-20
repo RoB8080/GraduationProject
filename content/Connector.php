@@ -1,14 +1,11 @@
 <?php
-$servername = "localhost:3306";
-$username = "root";
-$password = "Asd68915";
-
-// 创建连接
-$conn = new mysqli($servername, $username, $password);
-
-// 检测连接
-if ($conn->connect_error) {
-    die("连接失败: " . $conn->connect_error);
+$mysqli = new mysqli('localhost:3306', 'pilotplan', 'pilotplan', 'pilotplan'); if ($mysqli->connect_errno) {
+   echo "Sorry, this website is experiencing problems.<p>";
+   echo "Error: Failed to make a MySQL connection, here is why: <br>";
+   echo "Errno: " . $mysqli->connect_errno . "<br>";
+   echo "Error: " . $mysqli->connect_error . "<br>";
+   exit;
 }
-echo "连接成功";
-?>
+
+echo "Wooohoooo it works with PHP" . phpversion() ."!!<br><hr>";
+
