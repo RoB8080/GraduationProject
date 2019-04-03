@@ -13,13 +13,11 @@ function db_OpenConn() {
     {
         die('Could not connect: ' . mysqli_error());
     }
-    echo '数据库连接成功！';
 }
 //关闭数据库连接
 function db_CloseConn() {
     global $conn;
     mysqli_close($conn);
-    echo "close";
 }
 //执行一次查询
 function db_Query($query) {
