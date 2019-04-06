@@ -9,7 +9,10 @@
 </head>
 <?php include '.\php\Connector.php' ?>
 <body>
-<header><span class="title">引航大数据可视化</span></header>
+<header><div class="title">引航大数据可视化</div></header>
+<nav>
+
+</nav>
     <div id="pilot_grade_table">
     </div>
 </body>

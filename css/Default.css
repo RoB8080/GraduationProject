@@ -1,3 +1,13 @@
-.title {
-
+body {
+    margin: 0;
+}
+header {
+    display: block;
+    background-color: #9df;
+    padding: 35px 0 35px 40px;
+}
+header .title {
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: bold;
 }
