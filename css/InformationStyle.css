@@ -1,9 +1,39 @@
 html {
     font-family: Helvetica, Arial, sans-serif;
-    font-size: 18px;
     color: #ffe;
     height: 100%;
 }
 body {
+    margin: 0;
     background-color: #777785;
+}
+/*筛选按钮组*/
+.filter_button_group {
+    font-size:0;
+}
+.filter_button {
+    display: inline-block;
+    border: none;
+    color: #ffe;
+    background-color: #5f5f65;
+    padding: 5px 10px;
+    font-size: 18px;
+    margin: 0;
+    cursor: pointer;
+}
+.filter_button:hover {
+    background-color: #ffe;
+    color: #5f5f65;
+}
+.filter_button.left {
+    border-radius: 5px 0 0 5px;
+}
+.filter_button.right {
+    border-radius: 0 5px 5px 0;
+}
+.filter_button.selected {
+    background-color: #7878dd;
+}
+.filter_button.selected:hover {
+    color: #ffe;
 }

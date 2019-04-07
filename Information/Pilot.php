@@ -20,6 +20,17 @@
         <rect transform="translate(226, 212)" width="14" height="14" fill="#ffaaaa"></rect>
     </svg>
 </div>
+<div class="filter_container">
+    <div class="filter_button_group">
+        <span class="filter_button left selected g1" onclick="filter_button_select">不限</span>
+        <span class="filter_button g2">A级</span>
+        <span class="filter_button g2">B级</span>
+        <span class="filter_button right g2">C级</span>
+    </div>
+</div>
+<div id="pilot_info_container">
+    <div class="pilot_info_cell"></div>
+</div>
 </body>
 <?php include '..\php\Visualization.php' ?>
 </html>
