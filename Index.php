@@ -30,7 +30,7 @@
             </ul>
         </div>
     </nav>
-    <iframe name="iframe_main"></iframe>
+    <iframe name="iframe_main" src="Information/Pilot.php"></iframe>
 </div>
 <footer>
     <span>毕业设计 沈隽杰 201510311190</span>

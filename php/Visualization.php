@@ -1,12 +1,9 @@
 <script>
     var width = 400;
     var height = 400;
-    var svg = d3.select("#pilot_grade_table").append("svg").attr("width", width).attr("height", height);
+    var svg = d3.select("#pilot_grade_svg");
+    var color = ["#ffaaaa","#ff8888","#ff6666"];   //有十种颜色的颜色比例尺
 
-    svg.append("text")
-        .attr("transform","translate(200, 200)")
-        .attr("text-anchor","middle")
-        .text("引航员级别(位)");
     var dataset=[],label=[];
     <?php
       get_pilot_grade_data();
@@ -27,8 +24,6 @@
         .append("g")
         .attr("transform","translate("+ (width/2) +","+ (width/2) +")");
 
-    var color = ["#ffaaaa","#ff8888","#ff6666"];   //有十种颜色的颜色比例尺
-
     arcs.append("path")
         .attr("fill",function(d,i){
             return color[i];
@@ -42,6 +37,7 @@
             return "translate(" + arc.centroid(d) + ")";
         })
         .attr("text-anchor","middle")
+        .attr("font-size","25px")
         .text(function(d){
             return d.data;
         });
