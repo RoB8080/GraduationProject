@@ -6,34 +6,45 @@ html {
 body {
     margin: 0;
     background-color: #777785;
+    flex-direction: row;
+    height:100%;
 }
-/*筛选按钮组*/
-.filter_button_group {
-    font-size:0;
+.svg_container {
+    padding: 7px;
 }
-.filter_button {
+.svg_container svg {
+    margin: 7px;
+}
+.data_container {
+    display: flex;
+    flex-direction: column;
+    height:100%;
+}
+.filter_container {
+    flex: 0 0 auto;
+}
+
+.info_container {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background-color: #666673;
+}
+.info_container .label_container {
+    flex: 0 0 auto;
+}
+.info_container .main_container {
+    overflow-y: scroll;
+    flex: 1 1 auto;
+}
+.info_line {
+    border-bottom: solid #888888;
+}
+.info_cell {
     display: inline-block;
-    border: none;
-    color: #ffe;
-    background-color: #5f5f65;
-    padding: 5px 10px;
-    font-size: 18px;
-    margin: 0;
-    cursor: pointer;
-}
-.filter_button:hover {
-    background-color: #ffe;
-    color: #5f5f65;
-}
-.filter_button.left {
-    border-radius: 5px 0 0 5px;
-}
-.filter_button.right {
-    border-radius: 0 5px 5px 0;
-}
-.filter_button.selected {
-    background-color: #7878dd;
-}
-.filter_button.selected:hover {
-    color: #ffe;
+    padding: 0 10px;
+    border-right: solid #888888;
+    text-align: center;
+    line-height: 30px;
 }
