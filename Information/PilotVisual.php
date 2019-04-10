@@ -32,7 +32,8 @@ function pilotGradeSVG() {
         })
         .attr("d",function(d){
             return arc(d);   //调用弧生成器，得到路径值
-        });
+        })
+        .attr("stroke","#ffe");
 
     arcs.append("text")
         .attr("transform",function(d){
@@ -78,7 +79,8 @@ function pilotAddrSVG() {
         })
         .attr("d",function(d){
             return arc(d);   //调用弧生成器，得到路径值
-        });
+        })
+        .attr("stroke","#ffe");
 
     arcs.append("text")
         .attr("transform",function(d){
