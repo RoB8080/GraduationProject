@@ -44,7 +44,11 @@ if($addr!="00") {
 }
 $sql=$sql." LIMIT ".($start).",40";
 $result=db_Query($sql);
+echo "{\"results\":[";
+$row = mysqli_fetch_assoc($result);
+echo "{\"pNo\":\"".$row["CHPILOTNO"]."\",\"pNa\":\"".$row["VCPILOTNAME"]."\",\"pGr\":\"".$row["CHPILOTGRADE"]."\",\"pCl\":\"".$row["CHPILOTCLASS"]."\",\"pSt\":\"".$row["CHPILOTSTATE"]."\",\"pAd\":\"".$row["CHPILOTADSCRIPTCODE"]."\"}";
 while($row = mysqli_fetch_assoc($result)) {
-    echo $row["CHPILOTNO"].",".$row["VCPILOTNAME"].",".$row["CHPILOTGRADE"].",".$row["CHPILOTCLASS"].",".$row["CHPILOTSTATE"].",".$row["CHPILOTADSCRIPTCODE"].";";
+    echo ",{\"pNo\":\"".$row["CHPILOTNO"]."\",\"pNa\":\"".$row["VCPILOTNAME"]."\",\"pGr\":\"".$row["CHPILOTGRADE"]."\",\"pCl\":\"".$row["CHPILOTCLASS"]."\",\"pSt\":\"".$row["CHPILOTSTATE"]."\",\"pAd\":\"".$row["CHPILOTADSCRIPTCODE"]."\"}";
 }
+echo "]}";
 db_CloseConn();

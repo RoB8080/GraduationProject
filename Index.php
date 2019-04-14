@@ -19,15 +19,13 @@
                 <li class="selected" id="li_1"><a href="Information/Pilot.php" target="iframe_main" onclick="selectPage(1)">引航员概览</a></li>
                 <li id="li_2"><a href="Information/PilotDetail.php" target="iframe_main" onclick="selectPage(2)">引航员详情</a></li>
                 <li id="li_3"><a href="Information/Vessel.php" target="iframe_main" onclick="selectPage(3)">登记船只</a></li>
-                <li id="li_4"><a href="" target="iframe_main" onclick="selectPage(4)">港口</a></li>
+                <li id="li_4"><a href="Information/VesselDetail.php" target="iframe_main" onclick="selectPage(4)">船只详情</a></li>
             </ul>
         </div>
         <div class="list_title">历史数据</div>
         <div class="list_container">
             <ul>
-                <li id="li_11"><a href="" target="iframe_main" onclick="selectPage(11)">进出港统计</a></li>
-                <li id="li_12"><a href="" target="iframe_main" onclick="selectPage(12)">登记船只</a></li>
-                <li id="li_13"><a href="" target="iframe_main" onclick="selectPage(13)">港口</a></li>
+                <li id="li_11"><a href="Information/InOut.php" target="iframe_main" onclick="selectPage(11)">进出港统计</a></li>
             </ul>
         </div>
     </nav>

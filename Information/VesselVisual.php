@@ -5,11 +5,11 @@ function vesselNationSVG() {
     var height = 400;
     var svg = d3.select("#vessel_nation_svg");
     var trans = [];//国家颜色数组
-    trans["ML"]=["#eeec2c","马里"];trans["PA"]=["#7777ee","巴拿马"];trans["MY"]=["#ee5e3f","马来西亚"];
-    trans["BS"]=["#55cdee","巴哈马"];trans["KH"]=["#ee7b64","柬埔寨"];trans["KR"]=["#ee527e","韩国"];
-    trans["CY"]=["#ac67ee","塞浦路斯"];
+    trans["ML"]="#eeec2c";trans["PA"]="#7777ee";trans["MY"]="#ee5e3f";
+    trans["BS"]="#55cdee";trans["KH"]="#ee7b64";trans["KR"]="#ee527e";
+    trans["CY"]="#ac67ee";
 
-    var dataset=[],label=[];
+    var dataset=[],label=[],code=[];
     <?php
     get_vessel_nation_data();
     ?>
@@ -31,7 +31,7 @@ function vesselNationSVG() {
 
     arcs.append("path")
         .attr("fill",function(d,i){
-            return trans[label[i]][0];
+            return trans[code[i]];
         })
         .attr("stroke","#ffe")
         .attr("d",function(d){
@@ -49,7 +49,7 @@ function vesselNationSVG() {
         .attr("font-weight","bold")
         .attr("fill","#444444")
         .text(function(d,i){
-            return trans[label[i]][1];
+            return label[i];
         });
 
     arcs.append("text")
@@ -71,11 +71,11 @@ function vesselTypeSVG() {
         var height = 400;
         var svg = d3.select("#vessel_type_svg");
         var trans = [];//转换数组
-        trans["01"]=["#b9eebf","01"];trans["03"]=["#b7bfee","03"];
-        trans["11"]=["#76ee77","11"];trans["12"]=["#8586ee","12"];
-        trans["25"]=["#ee2f4d","25"];
+        trans["01"]="#b9eebf";trans["03"]="#b7bfee";
+        trans["11"]="#76ee77";trans["12"]="#8586ee";
+        trans["25"]="#ee2f4d";
 
-        var dataset=[],label=[];
+        var code=[],dataset=[],label=[];
         <?php
         get_vessel_type_data();
         ?>
@@ -97,7 +97,7 @@ function vesselTypeSVG() {
 
         arcs.append("path")
             .attr("fill",function(d,i){
-                return trans[label[i]][0];
+                return trans[code[i]];
             })
             .attr("stroke","#ffe")
             .attr("d",function(d){
@@ -115,7 +115,7 @@ function vesselTypeSVG() {
             .attr("font-weight","bold")
             .attr("fill","#444444")
             .text(function(d,i){
-                return trans[label[i]][1];
+                return label[i];
             });
 
         arcs.append("text")
@@ -136,22 +136,22 @@ function vesselTypeSVG() {
 <?php
 function get_vessel_nation_data() {
     db_OpenConn();
-    $sql="SELECT t_base_vesinfo.CHNATIONCODE,count(t_base_vesinfo.CHNATIONCODE) FROM t_base_vesinfo GROUP BY CHNATIONCODE;";
+    $sql="SELECT t_base_vesinfo.CHNATIONCODE,t_code_nationcode.VCNATIONCNNAME,count(t_base_vesinfo.CHNATIONCODE) FROM t_base_vesinfo INNER JOIN pilotplan.t_code_nationcode ON t_base_vesinfo.CHNATIONCODE=t_code_nationcode.VCNATIONCODE GROUP BY CHNATIONCODE;";
     $result=db_Query($sql);
     $t=0;
     while($row = mysqli_fetch_assoc($result)) {
-        echo "label[".$t."]=\"".$row["CHNATIONCODE"]."\";dataset[".$t."]=".$row["count(t_base_vesinfo.CHNATIONCODE)"].";\r\n";
+        echo "code[".$t."]=\"".$row["CHNATIONCODE"]."\";label[".$t."]=\"".$row["VCNATIONCNNAME"]."\";dataset[".$t."]=".$row["count(t_base_vesinfo.CHNATIONCODE)"].";\r\n";
         $t++;
     }
     db_CloseConn();
 }
 function get_vessel_type_data() {
     db_OpenConn();
-    $sql="SELECT t_base_vesinfo.CHVESTYPECODE,count(t_base_vesinfo.CHVESTYPECODE) FROM t_base_vesinfo GROUP BY CHVESTYPECODE;";
+    $sql="SELECT t_base_vesinfo.CHVESTYPECODE,t_code_vestypecode.VCVESTYPENAME,count(t_base_vesinfo.CHVESTYPECODE) FROM t_base_vesinfo INNER JOIN t_code_vestypecode ON t_code_vestypecode.CHVESTYPECODE=t_base_vesinfo.CHVESTYPECODE GROUP BY t_base_vesinfo.CHVESTYPECODE;";
     $result=db_Query($sql);
     $t=0;
     while($row = mysqli_fetch_assoc($result)) {
-        echo "label[".$t."]=\"".$row["CHVESTYPECODE"]."\";dataset[".$t."]=".$row["count(t_base_vesinfo.CHVESTYPECODE)"].";\r\n";
+        echo "code[".$t."]=\"".$row["CHVESTYPECODE"]."\";label[".$t."]=\"".$row["VCVESTYPENAME"]."\";dataset[".$t."]=".$row["count(t_base_vesinfo.CHVESTYPECODE)"].";\r\n";
         $t++;
     }
     db_CloseConn();

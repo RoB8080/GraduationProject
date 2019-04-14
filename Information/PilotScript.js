@@ -32,32 +32,11 @@ function getPilotInfo(start,filters){
     {
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
         {
-           let result=xmlhttp.responseText;
-           let loc=result.indexOf(";");
-           let pNo,pNa,pGr,pCl,pSt,pAd;
-           while (loc>-1) {
-               let tStr=result.substring(0,loc+1);
-               let t=tStr.indexOf(",");
-               pNo=tStr.substring(0,t);
-               tStr= tStr.substring(t+1);
-               t=tStr.indexOf(",");
-               pNa=tStr.substring(0,t);
-               tStr= tStr.substring(t+1);
-               t=tStr.indexOf(",");
-               pGr=tStr.substring(0,t);
-               tStr= tStr.substring(t+1);
-               t=tStr.indexOf(",");
-               pCl=tStr.substring(0,t);
-               tStr= tStr.substring(t+1);
-               t=tStr.indexOf(",");
-               pSt=tStr.substring(0,t);
-               tStr= tStr.substring(t+1);
-               t=tStr.indexOf(";");
-               pAd=tStr.substring(0,t);
-               let pilotInfoLine=new PilotInfoLine(pNo,pNa,pGr,pCl,pSt,pAd);
+           obj=JSON.parse(xmlhttp.responseText);
+           let len = obj.results.length;
+           for (let i=0;i<len;i++) {
+               let pilotInfoLine=new PilotInfoLine(obj.results[i].pNo,obj.results[i].pNa,obj.results[i].pGr,obj.results[i].pCl,obj.results[i].pSt,obj.results[i].pAd);
                $("#pilot_info").children(".main_container").append(pilotInfoLine.dom);
-               result=result.substring(loc+1);
-               loc=result.indexOf(";");
            }
         }
     };
