@@ -11,8 +11,8 @@
 <body>
 <div class="svg_container">
     <svg id="inout_monthly_svg" height="480" width="640">
-        <text transform="translate(39, 23)" text-anchor="middle" fill="#ffe" font-size="13px">船只数(艘)</text>
-        <text transform="translate(625, 460)" text-anchor="middle" fill="#f0f0e0" font-size="13px">月份</text>
+        <text id="label1" text-anchor="middle" fill="#ffe" font-size="13px">船只数(艘)</text>
+        <text id="label2" transform="translate(625, 460)" text-anchor="middle" fill="#f0f0e0" font-size="13px">月份</text>
     </svg>
 </div>
 </body>

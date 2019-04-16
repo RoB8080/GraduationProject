@@ -1,0 +1,42 @@
+html {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #ffe;
+    height: 100%;
+}
+body {
+    margin: 0;
+    background-color: #777785;
+    flex-direction: row;
+    height:100%;
+}
+svg {
+    background: #44444d;
+}
+#sphere {
+    fill: #3a8fb7;
+    stroke: #3f373b;
+}
+#sphere_atom {
+}
+path {
+    fill: none;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    comp-op: plus;
+    vector-effect: non-scaling-stroke;
+}
+.border {
+    stroke: #3f373b;
+}
+.land {
+    fill: #dac9a6;
+    stroke: #3f373b;
+}
+.location {
+    stroke: #3f373b;
+}
+
+.overlay {
+    fill: none;
+    pointer-events: all;
+}

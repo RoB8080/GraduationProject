@@ -26,6 +26,7 @@
         <div class="list_container">
             <ul>
                 <li id="li_11"><a href="Information/InOut.php" target="iframe_main" onclick="selectPage(11)">进出港统计</a></li>
+                <li id="li_12"><a href="Information/Nation.php" target="iframe_main" onclick="selectPage(12)">国家统计</a></li>
             </ul>
         </div>
     </nav>

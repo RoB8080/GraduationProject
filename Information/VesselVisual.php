@@ -1,29 +1,29 @@
 <script>
     $(document).ready(function(){vesselNationSVG();vesselTypeSVG();});
 function vesselNationSVG() {
-    var width = 400;
-    var height = 400;
-    var svg = d3.select("#vessel_nation_svg");
-    var trans = [];//国家颜色数组
+    let width = 400;
+    let height = 400;
+    let svg = d3.select("#vessel_nation_svg");
+    let trans = [];//国家颜色数组
     trans["ML"]="#eeec2c";trans["PA"]="#7777ee";trans["MY"]="#ee5e3f";
     trans["BS"]="#55cdee";trans["KH"]="#ee7b64";trans["KR"]="#ee527e";
     trans["CY"]="#ac67ee";
 
-    var dataset=[],label=[],code=[];
+    let dataset=[],label=[],code=[];
     <?php
     get_vessel_nation_data();
     ?>
-    var pie = d3.pie();
-    var piedata = pie(dataset);
+    let pie = d3.pie();
+    let piedata = pie(dataset);
 
-    var outerRadius = 190; //外半径
-    var innerRadius = 90; //内半径，为0则中间没有空白
+    let outerRadius = 190; //外半径
+    let innerRadius = 90; //内半径，为0则中间没有空白
 
-    var arc = d3.arc()  //弧生成器
+    let arc = d3.arc()  //弧生成器
         .innerRadius(innerRadius)   //设置内半径
         .outerRadius(outerRadius);  //设置外半径
 
-    var arcs = svg.selectAll("g")
+    let arcs = svg.selectAll("g")
         .data(piedata)
         .enter()
         .append("g")
@@ -67,29 +67,29 @@ function vesselNationSVG() {
 
 }
 function vesselTypeSVG() {
-        var width = 400;
-        var height = 400;
-        var svg = d3.select("#vessel_type_svg");
-        var trans = [];//转换数组
+        let width = 400;
+        let height = 400;
+        let svg = d3.select("#vessel_type_svg");
+        let trans = [];//转换数组
         trans["01"]="#b9eebf";trans["03"]="#b7bfee";
         trans["11"]="#76ee77";trans["12"]="#8586ee";
         trans["25"]="#ee2f4d";
 
-        var code=[],dataset=[],label=[];
+        let code=[],dataset=[],label=[];
         <?php
         get_vessel_type_data();
         ?>
-        var pie = d3.pie();
-        var piedata = pie(dataset);
+        let pie = d3.pie();
+        let piedata = pie(dataset);
 
-        var outerRadius = 190; //外半径
-        var innerRadius = 90; //内半径，为0则中间没有空白
+        let outerRadius = 190; //外半径
+        let innerRadius = 90; //内半径，为0则中间没有空白
 
-        var arc = d3.arc()  //弧生成器
+        let arc = d3.arc()  //弧生成器
             .innerRadius(innerRadius)   //设置内半径
             .outerRadius(outerRadius);  //设置外半径
 
-        var arcs = svg.selectAll("g")
+        let arcs = svg.selectAll("g")
             .data(piedata)
             .enter()
             .append("g")
