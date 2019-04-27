@@ -6,6 +6,7 @@
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
     <script src="../../lib/topojson.min.js"></script>
     <script src="../../lib/jquery-3.3.1.js" charset="utf-8"></script>
+    <script src="MapVisual.js" charset="utf-8"></script>
     <link rel="stylesheet" href="Map.css" type="text/css" />
 </head>
 <?php include '..\..\php\Connector.php' ?>
@@ -15,5 +16,4 @@
     <svg id="map_svg"></svg>
 </div>
 </body>
-<?php include 'MapVisual.php' ?>
 </html>

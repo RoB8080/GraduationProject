@@ -30,6 +30,7 @@ path {
 .land {
     fill: #888888;
     stroke: #3f373b;
+    fill-rule: evenodd;
 }
 .location {
     stroke: #3f373b;

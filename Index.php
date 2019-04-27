@@ -32,7 +32,9 @@
         <div class="list_title">实时数据</div>
         <div class="list_container">
             <ul>
-                <li id="li_21"><a href="Info/Realtime/Main.php" target="iframe_main" onclick="selectPage(21)">数据面板</a></li></ul>
+                <li id="li_21"><a href="Info/Realtime/Main.php" target="iframe_main" onclick="selectPage(21)">数据面板</a></li>
+                <li id="li_22"><a href="Info/Realtime/Map.php" target="iframe_main" onclick="selectPage(22)">地图面板</a></li>
+            </ul>
         </div>
     </nav>
     <iframe name="iframe_main" src="Info/Base/Pilot.php" frameborder="0" scrolling="no"></iframe>
