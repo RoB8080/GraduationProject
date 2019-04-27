@@ -1,0 +1,29 @@
+.rect_5{
+    fill: #4d7cff;
+    stroke: #ffe;
+}
+.rect_4{
+    fill: #668fff;
+    stroke: #ffe;
+}
+.rect_3{
+    fill: #80a1ff;
+    stroke: #ffe;
+}
+.rect_2{
+    fill: #99b3ff;
+    stroke: #ffe;
+}
+.rect_1{
+    fill: #b3c7ff;
+    stroke: #ffe;
+}
+.tips_bk {
+    fill: #4f4f55;
+    opacity: 0.4;
+}
+.tips_lb {
+    fill: #ffe;
+    font-size: 15px;
+    text-anchor: start;
+}

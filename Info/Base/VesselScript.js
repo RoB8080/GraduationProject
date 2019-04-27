@@ -38,6 +38,6 @@ function getVesselInfo(start,filters){
             }
         }
     };
-    xmlhttp.open("GET","/Information/VesselQuery.php?s="+((start-1)*40)+suffix,true);
-    xmlhttp.send();5
+    xmlhttp.open("GET","/Info/Base/VesselQuery.php?s="+((start-1)*40)+suffix,true);
+    xmlhttp.send();
 }

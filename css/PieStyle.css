@@ -1,0 +1,59 @@
+text {
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+
+.panel {
+    width: 47.7vw;
+    height: 36vw;
+    margin: 1vw 1vw;
+    border-radius: 5px;
+    border: 1px solid #383844;
+    overflow: hidden;
+    font-size: 2.5vw;
+    display: flex;
+    flex-direction: column;
+    float: left;
+}
+
+.panel_header {
+    background-color: #383844;
+    padding: 0 2.5vw;
+    line-height: 4.5vw;
+    color: #ffe;
+}
+
+.panel_content {
+    flex: 1 0 auto;
+}
+
+svg {
+    height: 100%;
+    width: 100%;
+}
+
+.arc_text {
+    font-size: 2.2vw;
+}
+
+.pie_sum {
+    font-size: 2.2vw;
+    fill: #ffe;
+}
+
+.tip_color {
+    stroke: #ffe;
+}
+
+.tip_text {
+    text-anchor: start;
+    fill: #ffe;
+}
+
+#available_pilot_grade .tip_text {
+    font-size: 2.5vw;
+}
+
+#pilot_state .tip_text {
+    font-size: 1.6vw;
+}

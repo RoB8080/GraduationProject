@@ -1,6 +1,6 @@
 <?php
-include '..\php\Connector.php';
-include '..\php\UsefulFunction.php';
+include '..\..\php\Connector.php';
+include '..\..\php\UsefulFunction.php';
 $start=$_GET['s'];
 $type=$_GET['vTp'];
 db_OpenConn();

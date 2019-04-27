@@ -73,3 +73,6 @@ li.selected {
 li.selected a {
     color: #ffe;
 }
+iframe {
+    background-color: #777785;
+}

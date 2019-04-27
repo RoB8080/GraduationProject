@@ -7,15 +7,14 @@
         height = document.body.clientHeight;
     let svg = d3.select("#nation_svg").attr("height", height).attr("width", width);
     let g = svg.append("g");
+    let zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
+
+
     svg.append("rect")
         .attr("class", "overlay")
         .attr("width", width)
-        .attr("height", height);
-    g.append("circle")
-        .attr("r", height * 0.47)
-        .attr("id", "sphere_atom")
-        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
-        .attr("fill", "url(#grad1)");
+        .attr("height", height)
+        .call(zoom);
     let projection = d3.geoNaturalEarth2()
         .translate([width / 2, height / 2])
         .scale(width * 0.165);
@@ -25,7 +24,7 @@
         .datum({type: "Sphere"})
         .attr("id", "sphere")
         .attr("d", path);
-    d3.json("../lib/110m.json")
+    d3.json("../../lib/110m.json")
         .then(function (world) {
             let inner_g = g.append("g").attr("class", "ig");
             inner_g.append("path")
@@ -46,9 +45,6 @@
         .enter()
         .append("circle")
         .attr("class","location")
-        .attr("r", function(d){
-            return CtoS(d.vescount[0]+d.vescount[1])
-        })
         .attr("fill","#cb1b45")
         .attr("transform",function(d){
             let loc = projection([d.location[0], d.location[1]]);
@@ -57,7 +53,7 @@
         .on("mouseover", function (d, i) {
             let th=58,tw=104,loc = projection([d.location[0], d.location[1]]);
             d3.select(this).attr("fill","#ffe");
-            svg.append('rect')
+            locs.append('rect')
                 .attr("transform","translate("+(loc[0]-tw/2)+","+(loc[1]-th-10)+")")
                 .attr("width",tw+"px")
                 .attr("height",th+"px")
@@ -66,21 +62,21 @@
                 .attr("rx","5px")
                 .attr("ry","5px")
                 .attr("class","tooltip");
-            svg.append('text')
+            locs.append('text')
                 .attr("transform","translate("+loc[0]+","+(loc[1]-50)+")")
                 .attr("text-anchor","middle")
                 .attr("font-size","17px")
                 .attr("fill","#ffe")
                 .attr("class","tooltip")
                 .text(dataset[i].name);
-            svg.append('text')
+            locs.append('text')
                 .attr("transform","translate("+loc[0]+","+(loc[1]-33)+")")
                 .attr("text-anchor","middle")
                 .attr("font-size","17px")
                 .attr("fill","#ffe")
                 .attr("class","tooltip")
                 .text("来自："+dataset[i].vescount[0]);
-            svg.append('text')
+            locs.append('text')
                 .attr("transform","translate("+loc[0]+","+(loc[1]-16)+")")
                 .attr("text-anchor","middle")
                 .attr("font-size","17px")
@@ -92,11 +88,31 @@
             $(".tooltip").remove();
             d3.select(this)
                 .attr("fill","#cb1b45");
+        })
+        .transition()
+        .delay(800)
+        .duration(800)
+        .attrTween("r", function(d){
+            let i = d3.interpolateNumber(0, CtoS(d.vescount[0]+d.vescount[1]));
+            return function (t) {
+                return i(t);
+            }
         });
     function CtoS(c){
         let sizeScale=d3.scaleLinear([100,1000],[3,13]);
-        console.log(c);
         return sizeScale((c<100?100:c)>1000?1000:c);
+    }
+
+    function zoomed() {
+        console.log(d3.event);
+        g.attr("transform",
+            "translate(" + d3.event.transform.x + "," + d3.event.transform.y + ")" +
+            "scale(" + d3.event.transform.k + ")"
+        );
+        locs.attr("transform",
+            "translate(" + d3.event.transform.x + "," + d3.event.transform.y + ")" +
+            "scale(" + d3.event.transform.k + ")"
+        );
     }
 </script>
 <?php

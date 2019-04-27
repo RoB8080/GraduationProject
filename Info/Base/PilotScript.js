@@ -40,6 +40,6 @@ function getPilotInfo(start,filters){
            }
         }
     };
-    xmlhttp.open("GET","/Information/PilotQuery.php?s="+((start-1)*40)+suffix,true);
+    xmlhttp.open("GET","/Info/Base/PilotQuery.php?s="+((start-1)*40)+suffix,true);
     xmlhttp.send();
 }
