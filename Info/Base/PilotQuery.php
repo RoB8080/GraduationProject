@@ -5,7 +5,7 @@ $start=$_GET['s'];
 $grade=$_GET['pGr'];
 $addr=$_GET['pAd'];
 db_OpenConn();
-$sql="SELECT CHPILOTNO,VCPILOTNAME,CHPILOTGRADE,CHPILOTCLASS,CHPILOTSTATE,CHPILOTADSCRIPTCODE FROM pilotplan.t_base_pilotinfo";
+$sql="SELECT CHPILOTNO,VCPILOTNAME,CHPILOTGRADE,CHPILOTCLASS,CHPILOTADSCRIPTCODE,VCFOREIGNLANGUAGE,VCTELEPHONE1,VCMOBILENUMBER1 FROM pilotplan.t_base_pilotinfo";
 if($grade!="000"||$addr!="00") {
     $sql=$sql." WHERE";
 }
@@ -46,9 +46,9 @@ $sql=$sql." LIMIT ".($start).",40";
 $result=db_Query($sql);
 echo "{\"results\":[";
 $row = mysqli_fetch_assoc($result);
-echo "{\"pNo\":\"".$row["CHPILOTNO"]."\",\"pNa\":\"".$row["VCPILOTNAME"]."\",\"pGr\":\"".$row["CHPILOTGRADE"]."\",\"pCl\":\"".$row["CHPILOTCLASS"]."\",\"pSt\":\"".$row["CHPILOTSTATE"]."\",\"pAd\":\"".$row["CHPILOTADSCRIPTCODE"]."\"}";
+echo "{\"pNo\":\"".$row["CHPILOTNO"]."\",\"pNa\":\"".$row["VCPILOTNAME"]."\",\"pGr\":\"".$row["CHPILOTGRADE"]."\",\"pCl\":\"".$row["CHPILOTCLASS"]."\",\"pAd\":\"".$row["CHPILOTADSCRIPTCODE"]."\",\"pFl\":\"".$row["VCFOREIGNLANGUAGE"]."\",\"pTp\":\"".$row["VCTELEPHONE1"]."\",\"pMp\":\"".$row["VCMOBILENUMBER1"]."\"}";
 while($row = mysqli_fetch_assoc($result)) {
-    echo ",{\"pNo\":\"".$row["CHPILOTNO"]."\",\"pNa\":\"".$row["VCPILOTNAME"]."\",\"pGr\":\"".$row["CHPILOTGRADE"]."\",\"pCl\":\"".$row["CHPILOTCLASS"]."\",\"pSt\":\"".$row["CHPILOTSTATE"]."\",\"pAd\":\"".$row["CHPILOTADSCRIPTCODE"]."\"}";
+    echo ",{\"pNo\":\"".$row["CHPILOTNO"]."\",\"pNa\":\"".$row["VCPILOTNAME"]."\",\"pGr\":\"".$row["CHPILOTGRADE"]."\",\"pCl\":\"".$row["CHPILOTCLASS"]."\",\"pAd\":\"".$row["CHPILOTADSCRIPTCODE"]."\",\"pFl\":\"".$row["VCFOREIGNLANGUAGE"]."\",\"pTp\":\"".$row["VCTELEPHONE1"]."\",\"pMp\":\"".$row["VCMOBILENUMBER1"]."\"}";
 }
 echo "]}";
 db_CloseConn();

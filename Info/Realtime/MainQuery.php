@@ -10,7 +10,7 @@ echo "}}";
 db_CloseConn();
 
 function availablePilotGrade() {
-    $sql="SELECT CHPILOTGRADE,CHPILOTCLASS,COUNT(*) FROM pilotplan.t_base_pilotinfo GROUP BY CHPILOTGRADE,CHPILOTCLASS ORDER BY CHPILOTGRADE,CHPILOTCLASS;";
+    $sql="SELECT CHPILOTGRADE,CHPILOTCLASS,COUNT(*) FROM pilotplan.t_data_pilot GROUP BY CHPILOTGRADE,CHPILOTCLASS ORDER BY CHPILOTGRADE,CHPILOTCLASS;";
     $result=db_Query($sql);
     echo "\"apg\":[";
     $row = mysqli_fetch_assoc($result);

@@ -10,7 +10,6 @@
     function yearlyCountDataShowB() {
         $("#inout_monthly_svg").children().remove();
         let svg = d3.select("#inout_monthly_svg");
-
         let min = Math.floor(d3.min(dataY)/100)*100-50,
             max = Math.ceil(d3.max(dataY)/100)*100+50,
             width = document.body.clientWidth,
@@ -55,9 +54,8 @@
             });
         svg.append("svg:path")
             .attr("d", lineGen(year))
-            .attr("fill", "none")
-            .attr("stroke","url(#lineFill)")
-            .attr("stroke-width",1);
+            .attr("class","line")
+            .attr("stroke","url(#lineFill)");
 
         let points = svg.append("g")
             .attr("class", "dots");
@@ -147,7 +145,6 @@
     }
     function yearlyCountDataShow(obj) {
         let svg = d3.select("#inout_monthly_svg");
-
         dataset=obj.results;
         dataset.forEach(function(e) {
             mon.push(e.label);
@@ -176,7 +173,7 @@
             width = document.body.clientWidth,
             height = document.body.clientHeight,
             margin = 50,
-            xScale = d3.scaleOrdinal(d3.timeYears(new Date(2016,0,1),new Date()),d3.range(margin, width - margin,width/(d3.timeYear.count(new Date(2016,0,15),new Date())+1))),
+            xScale = d3.scaleOrdinal(d3.timeYears(new Date(parseInt(year[0][0])-1,0,1),new Date()),d3.range(margin, width - margin,width/(d3.timeYear.count(new Date(parseInt(year[0][0])-1,0,15),new Date())+1))),
             yScale = d3.scaleLinear([min,max],[height - margin, margin]),
             xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%y")),
             yAxis = d3.axisLeft(yScale);
@@ -215,9 +212,8 @@
             });
         svg.append("svg:path")
             .attr("d", lineGen(year))
-            .attr("fill", "none")
-            .attr("stroke","url(#lineFill)")
-            .attr("stroke-width",1);
+            .attr("class","line")
+            .attr("stroke","url(#lineFill)");
 
         let points = svg.append("g")
             .attr("class", "dots");
@@ -238,7 +234,7 @@
             .on("mouseover", function (d) {
                 let t = d3.select(this),th=46,tw=80;
                 svg.append('rect')
-                    .attr("transform","translate("+(parseFloat(t.attr("cx"))-tw/2)+","+(parseFloat(t.attr("cy"))-th-10)+")")
+                    .attr("transform","translate("+(parseFloat(t.attr("cx"))-tw/2)+","+(parseFloat(t.attr("cy"))-th-20)+")")
                     .attr("width",tw+"px")
                     .attr("height",th+"px")
                     .attr("fill","#667")
@@ -247,25 +243,25 @@
                     .attr("ry","5px")
                     .attr("class","tooltip");
                 svg.append('text')
-                    .attr("transform","translate("+t.attr("cx")+","+(parseFloat(t.attr("cy"))-22)+")")
+                    .attr("transform","translate("+t.attr("cx")+","+(parseFloat(t.attr("cy"))-31)+")")
                     .attr("text-anchor","middle")
                     .attr("font-size","17px")
                     .attr("fill","#ffe")
                     .attr("class","tooltip")
                     .text(d[1]+"艘");
                 svg.append('text')
-                    .attr("transform","translate("+t.attr("cx")+","+(parseFloat(t.attr("cy"))-41)+")")
+                    .attr("transform","translate("+t.attr("cx")+","+(parseFloat(t.attr("cy"))-51)+")")
                     .attr("text-anchor","middle")
                     .attr("font-size","17px")
                     .attr("fill","#ffe")
                     .attr("class","tooltip")
                     .text(d[0]+"年");
-                t.attr("r", "6").attr("fill","#8484ef");
+                t.attr("r", "10").attr("fill","#8484ef");
             })
             .on("mouseout", function () {
                 $(".tooltip").remove();
                 d3.select(this)
-                    .attr("r", "3")
+                    .attr("r", "5")
                     .attr("fill","#ffe");
             })
             .on("click",function(d){monthlyCountDataShow(d[0])})
@@ -276,7 +272,7 @@
             })
             .duration(800)
             .attrTween("r",function(){
-                let i = d3.interpolateNumber(0, 6);
+                let i = d3.interpolateNumber(0, 10);
                 return function (t) {
                     if(t<0.5) {
                         return 0;
@@ -362,9 +358,8 @@
             });
         svg.append("svg:path")
             .attr("d", lineGen(tDataM))
-            .attr("fill", "none")
-            .attr("stroke","url(#lineFill)")
-            .attr("stroke-width",1);
+            .attr("class","line")
+            .attr("stroke","url(#lineFill)");
 
         let points = svg.append("g")
             .attr("class", "dots");
@@ -381,11 +376,11 @@
             })
             .attr("cy", function (d) {
                 return yScale(d);
-            })2w
+            })
             .on("mouseover", function (d, i) {
-                let t = d3.select(this),th=40,tw=70;
+                let t = d3.select(this),th=46,tw=70;
                 svg.append('rect')
-                    .attr("transform","translate("+(parseFloat(t.attr("cx"))-tw/2)+","+(parseFloat(t.attr("cy"))-th-10)+")")
+                    .attr("transform","translate("+(parseFloat(t.attr("cx"))-tw/2)+","+(parseFloat(t.attr("cy"))-th-20)+")")
                     .attr("width",tw+"px")
                     .attr("height",th+"px")
                     .attr("fill","#667")
@@ -394,25 +389,25 @@
                     .attr("ry","5px")
                     .attr("class","tooltip");
                 svg.append('text')
-                    .attr("transform","translate("+t.attr("cx")+","+(parseFloat(t.attr("cy"))-20)+")")
+                    .attr("transform","translate("+t.attr("cx")+","+(parseFloat(t.attr("cy"))-31)+")")
                     .attr("text-anchor","middle")
                     .attr("font-size","17px")
                     .attr("fill","#ffe")
                     .attr("class","tooltip")
                     .text(tDataM[i]+"艘");
                 svg.append('text')
-                    .attr("transform","translate("+t.attr("cx")+","+(parseFloat(t.attr("cy"))-37)+")")
+                    .attr("transform","translate("+t.attr("cx")+","+(parseFloat(t.attr("cy"))-51)+")")
                     .attr("text-anchor","middle")
                     .attr("font-size","17px")
                     .attr("fill","#ffe")
                     .attr("class","tooltip")
                     .text(tMon[i]);
-                t.attr("r", "6").attr("fill","#8484ef");
+                t.attr("r", "10").attr("fill","#8484ef");
             })
             .on("mouseout", function () {
                 $(".tooltip").remove();
                 d3.select(this)
-                    .attr("r", "3")
+                    .attr("r", "5")
                     .attr("fill","#ffe");
             })
             .on("click", function() {yearlyCountDataShowB()})
@@ -423,7 +418,7 @@
             })
             .duration(800)
             .attrTween("r",function(){
-                let i = d3.interpolateNumber(0, 6);
+                let i = d3.interpolateNumber(0, 10);
                 return function (t) {
                     if(t<0.5) {
                         return 0;

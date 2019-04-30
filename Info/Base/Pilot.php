@@ -17,7 +17,7 @@
     <div class="panel_content"></div>
 </div>
 <div class="panel" id="PA">
-    <div class="panel_header">引航员港区分布</div>
+    <div class="panel_header">引航员分布</div>
     <div class="panel_content"></div>
 </div>
 </body>

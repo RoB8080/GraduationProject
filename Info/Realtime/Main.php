@@ -5,6 +5,7 @@
     <script src="../../lib/d3.v5.min.js" charset="utf-8"></script>
     <script src="../../lib/jquery-3.3.1.js" charset="utf-8"></script>
     <script src="MainScript.js" charset="utf-8"></script>
+    <script src="../../js/Test.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://rob8080.github.io/Filters/filtersStyle.css" type="text/css" />
     <link rel="stylesheet" href="../../css/InformationStyle.css" type="text/css" />
     <link rel="stylesheet" href="../../css/PieStyle.css" type="text/css" />

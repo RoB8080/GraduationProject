@@ -57,3 +57,8 @@ text {
     text-align: center;
     line-height: 30px;
 }
+
+.line {
+    fill:none;
+    stroke-width: 2;
+}

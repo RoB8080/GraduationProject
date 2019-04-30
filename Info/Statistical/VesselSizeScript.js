@@ -18,7 +18,7 @@ function visualize(dataset,extent){
         margin = 50,
         tHeight = height- 2 * margin,
         svg = d3.select("#vessel_size_svg"),
-        xScale = d3.scaleBand(d3.timeMonths(new Date(2017,0,1),new Date()),[margin, width - margin]).paddingInner(0).paddingOuter(0),
+        xScale = d3.scaleBand(d3.timeMonths(new Date(2016,0,1),new Date()),[margin, width - margin]).paddingInner(0).paddingOuter(0),
         yScale = d3.scaleLinear([0,max],[height - margin, margin]),
         xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%y/%m")),
         yAxis = d3.axisLeft(yScale);

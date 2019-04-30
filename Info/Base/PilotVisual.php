@@ -10,7 +10,7 @@
     function pilotGradeShow(obj) {
         let dataset=obj.results,
             svg = d3.select("#PG .panel_content").append("svg").attr("id","pilot_grade_svg"),
-            color = ["#ffaaaa","#ff8888","#ff6666"];
+            color = ["#ff6666","#ff8888","#ffaaaa"];
         let label=[],data=[];
         dataset.forEach(function(e) {
             label.push(e.label);
@@ -215,7 +215,7 @@
     function pilotAddrShow(obj) {
         let dataset=obj.results,
             svg = d3.select("#PA .panel_content").append("svg").attr("id","pilot_addr_svg"),
-            color = ["#4d4dff","#4fff4f"];
+            color = ["#d9584c","#4c9ed9"];
         let label=[],data=[];
         dataset.forEach(function(e) {
             label.push(e.label);
@@ -309,7 +309,7 @@
 
     }
     //不同地区颜色表
-    let addrColor=[["#4d4dff","#8080ff","#b3b3ff"],["#4fff4f","#82ff82","#b5ffb5"]];
+    let addrColor=[["#d9584c","#d9756c","#d9938d"],["#4c9ed9","#6cacd9","#8db9d9"]];
     //获取细节分地区数据
     function pilotAddrDetailGet(tAddr,baseDelay) {
         let url="/Info/Base/PilotAddrQuery.php?d=2&a="+tAddr;

@@ -1,20 +1,28 @@
+.info_cell {
+}
 .info_cell.col1 {
-    width: 70px;
+    width: 11vh;
 }
 .info_cell.col2 {
-    width: 60px;
+    width: 9vh;
 }
 .info_cell.col3 {
-    width: 40px;
+    width: 9vh;
 }
 .info_cell.col4 {
-    width: 40px;
+    width: 9vh;
 }
 .info_cell.col5 {
-    width: 40px;
+    width: 16vh;
 }
 .info_cell.col6 {
-    width: 60px;
+    width: 16vh;
+}
+.info_cell.col7 {
+    width: 20vh;
+}
+.info_line {
+    font-size: 3vh;
 }
 .svg_container {
     padding: 15px;

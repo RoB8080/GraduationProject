@@ -1,17 +1,26 @@
 .info_cell.col1 {
-    width: 110px;
+    width: 18vh;
 }
 .info_cell.col2 {
-    width: 60px;
+    width: 12vh;
 }
 .info_cell.col3 {
-    width: 85px;
+    width: 12vh;
 }
 .info_cell.col4 {
-    width: 100px;
+    width: 15vh;
 }
 .info_cell.col5 {
-    width: 100px;
+    width: 18vh;
+}
+.info_cell.col6 {
+    width: 18vh;
+}
+.info_cell.col7 {
+    width: 16vh;
+}
+.info_line {
+    font-size: 3vh;
 }
 .svg_container {
     padding: 15px;

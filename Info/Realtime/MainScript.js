@@ -1,6 +1,6 @@
 $(document).ready(function(){
     visualizeAll(true);
-    d3.interval(function(){visualizeAll(false)},6000);
+    d3.interval(function(){visualizeAll(false)},5000);
 });
 
 var aPG;
@@ -147,7 +147,6 @@ class AvailablePilotGrade {
             label.push(e.label);
             data.push(e.data);
         });
-
         let color = this.color,
             svg = this.svg,
             pie = this.pie,

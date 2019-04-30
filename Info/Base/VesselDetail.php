@@ -24,6 +24,15 @@
             <button>拖轮</button>
             <button>化工品</button>
         </div>
+        <div class="filter_selector_container" name="vesselSz">
+            <span>船长(米):</span>
+            <button class="selected" type="nL">不限</button>
+            <button>&lt;150</button>
+            <button>150-180</button>
+            <button>180-250</button>
+            <button>250-300</button>
+            <button>&gt;300</button>
+        </div>
         <button class="filter_commit_button" onclick="getVesselInfo(1,getFilterArray('vessel_filter'))">筛选</button>
     </div>
     <div class="info_container" id="vessel_info" class="info_container">
