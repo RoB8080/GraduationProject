@@ -211,7 +211,7 @@ function visualizeAvailablePilotGrade(dataset){
     });
 
     let total = d3.sum(data),
-        color = ["#f03232","#f06262","#f07a7a","#f09292","#f0aaaa","#f0c2c2"],
+        color = ["#f01818","#f03e3e","#f06565","#f08b8b","#f0b1b1","#f0d8d8"],
         svg = d3.select("#available_pilot_grade"),
         height = $("#available_pilot_grade").height(),
         pie = d3.pie().sortValues(null),

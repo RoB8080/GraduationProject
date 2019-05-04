@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="panel" id="APG">
-    <div class="panel_header">可用引航员等级</div>
+    <div class="panel_header">可用引航员</div>
     <div class="panel_content">
         <svg id="available_pilot_grade">
             <g class="tips"></g>
